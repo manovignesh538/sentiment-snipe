@@ -14,13 +14,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Stock Price + News + Sentiment | Summary Table |
-|-------------------------------|----------------|
-| ![Dashboard](<img width="2669" height="1366" alt="image" src="https://github.com/user-attachments/assets/58d8db1e-e814-470f-a596-967415c73d52" />) | ![Table](<img width="2560" height="594" alt="image" src="https://github.com/user-attachments/assets/b8b4a7f2-c49a-4805-a14b-995efb9a596d" />) |
-
----
 
 ## 🛠️ Tech Stack
 
@@ -153,5 +146,6 @@ Made with ❤️ by **Vignesh**
 ---
 
 > ⭐ If you like this project, drop a star!
+
 
 
