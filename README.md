@@ -54,10 +54,10 @@ Edit
 
 Create a `.env` file in the root and paste your keys:
 
-```env
 FINNHUB_API_KEY=your_finnhub_api_key
 APCA_API_KEY_ID=your_alpaca_key
 APCA_API_SECRET_KEY=your_alpaca_secret
+
 🛠️ Setup Instructions
 Follow these simple steps to get the app running:
 
@@ -114,3 +114,4 @@ Edit
 - Commit this README to your repo.
 
 Let me know if you want a dark-themed version with badges or animations too!
+
