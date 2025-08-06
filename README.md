@@ -1,117 +1,155 @@
-# 🤖 Sentiment Snipe – AI-Powered Stock Trading Bot
+# 🤖 Sentiment Snipe – AI-Powered Stock Trading Dashboard
 
-Sentiment Snipe is a real-time, AI-powered stock trading dashboard built with 🐍 Python and 📊 Streamlit.  
-It analyzes live news headlines using FinBERT and automatically lets users buy/sell stocks based on sentiment, powered by the Alpaca trading API.
+**Sentiment Snipe** is a smart and interactive dashboard that fetches **real-time stock prices and news headlines**, performs **sentiment analysis using FinBERT**, and allows users to **BUY/SELL stocks** instantly using the **Alpaca API** — all inside a beautifully styled **Streamlit web app**.
 
 ---
 
 ## 🚀 Features
 
-- 📰 Real-time Stock News from Finnhub API  
-- 📈 Live Stock Prices  
-- 💬 Sentiment Analysis using FinBERT  
-- 🟢 BUY / 🔴 SELL buttons to trigger real trades via Alpaca  
-- 💻 Clean and intuitive Streamlit UI  
-- ⏱️ Fast performance (loads top 3 news only)
+- 📈 Real-time stock price display (Finnhub API)
+- 📰 Live news headlines (latest 3) for selected stocks
+- 💬 Sentiment analysis on headlines using **FinBERT**
+- 🟢 BUY and 🔴 SELL buttons powered by **Alpaca Trading API**
+- 🎨 Custom themed Streamlit interface with emojis and highlights
 
 ---
 
-## 🧰 Tech Stack
+## 📸 Screenshots
 
-| Tool | Description |
-|------|-------------|
-| [Python](https://www.python.org/) | Backend language |
-| [Streamlit](https://streamlit.io/) | Web framework for UI |
-| [Alpaca API](https://alpaca.markets/) | For executing trades |
-| [Finnhub API](https://finnhub.io/) | Stock prices & news |
-| [FinBERT](https://huggingface.co/ProsusAI/finbert) | Pretrained sentiment model for financial text |
-| `.env` | Environment variables for API keys |
+| Stock Price + News + Sentiment | Summary Table |
+|-------------------------------|----------------|
+| ![Dashboard](assets/screenshot1.png) | ![Table](assets/screenshot2.png) |
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Tech Stack
 
-📦 sentiment_snipe/
-├── .streamlit/ # Streamlit config (optional)
-├── src/ # Core logic and modular files
-│ ├── broker.py # Buy/Sell via Alpaca
-│ ├── config.py # Environment variable loading
-│ ├── news_fetcher.py # Fetch price and news from Finnhub
-│ ├── sentiment.py # FinBERT model logic
-├── main.py # Entry point Streamlit app
-├── test_broker.py # Standalone Alpaca trade tester
-├── requirements.txt # Dependencies
-├── README.md # You're reading it!
-├── .env # Store API keys (DO NOT COMMIT)
-
-yaml
-Copy
-Edit
+| Tool             | Purpose                               |
+|------------------|----------------------------------------|
+| Python 3.x       | Core language                          |
+| Streamlit        | Web app/dashboard                      |
+| Finnhub API      | Real-time stock data and news          |
+| FinBERT (HuggingFace) | Sentiment analysis on headlines  |
+| Alpaca API       | Place real trades (paper mode)         |
+| Requests         | API calls                              |
+| Dotenv           | Secure API key handling                |
+| Pandas           | DataFrame display                      |
 
 ---
 
-## 🔑 API Setup
+## 📦 Installation
 
-Create a `.env` file in the root and paste your keys:
+### 1. Clone the repo
 
-FINNHUB_API_KEY=your_finnhub_api_key
-APCA_API_KEY_ID=your_alpaca_key
-APCA_API_SECRET_KEY=your_alpaca_secret
-
-🛠️ Setup Instructions
-Follow these simple steps to get the app running:
-
-1. Clone the repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/sentiment-snipe.git
+```bash
+git clone https://github.com/YOUR_USERNAME/sentiment-snipe.git
 cd sentiment-snipe
-2. Install dependencies
-bash
-Copy
-Edit
+```
+
+### 2. (Optional) Create a virtual environment
+
+```bash
+python -m venv venv
+source venv/bin/activate   # On Windows use: venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-3. Add your API keys
-Create a .env file and paste your keys (as shown above).
-
-4. Run the Streamlit app
-bash
-Copy
-Edit
-streamlit run main.py
-📸 UI Preview
-Price + Sentiment	Summary Table
-
-✅ Todo / Future Features
- Add portfolio tracking with Alpaca positions
-
- Limit orders or quantity input for BUY/SELL
-
- Deploy on Streamlit Cloud / Hugging Face
-
-🙌 Acknowledgments
-ProsusAI/FinBERT
-
-Alpaca Markets
-
-Finnhub API
-
-📬 Contact
-Vignesh – LinkedIn | GitHub
-
-⭐ If you liked this project, leave a star on GitHub and share with your friends!
-
-yaml
-Copy
-Edit
+```
 
 ---
 
-### ✅ What You Need to Do Next:
-- Replace the dummy links with your actual GitHub and LinkedIn URLs.
-- Add your own screenshots in an `assets/` folder as `snapshot1.png` and `snapshot2.png`.
-- Commit this README to your repo.
+## 🔐 API Configuration
 
-Let me know if you want a dark-themed version with badges or animations too!
+Create a `.env` file in the root folder and add the following:
 
+```env
+FINNHUB_API_KEY=your_finnhub_api_key
+APCA_API_KEY_ID=your_alpaca_api_key
+APCA_API_SECRET_KEY=your_alpaca_secret_key
+```
+
+✅ **Make sure not to upload this file to GitHub.**
+
+---
+
+## 🚦 Run the App
+
+```bash
+streamlit run main.py
+```
+
+It will open in your browser at: [http://localhost:8501](http://localhost:8501)
+
+---
+
+## 🧠 How It Works
+
+1. **User selects stock symbols** (AAPL, TSLA, etc.)
+2. App fetches:
+   - Latest stock price from Finnhub
+   - Top 3 news headlines
+3. Each headline is analyzed using **FinBERT** to label as:
+   - 🟢 Positive
+   - 🔴 Negative
+   - ⚪ Neutral
+4. User can press **BUY** or **SELL** buttons
+   - Automatically places order using Alpaca API
+   - You can view orders in your Alpaca dashboard
+
+---
+
+## ✅ Example Use Cases
+
+- 🔍 Monitor stock price + live news before making a trade
+- 🧠 Use AI to assess market sentiment instantly
+- 💸 Execute trades with 1 click (on Alpaca paper trading)
+
+---
+
+## 🚧 Roadmap
+
+- [ ] Add quantity input for buying/selling
+- [ ] Show order history in dashboard
+- [ ] Deploy to Streamlit Cloud or HuggingFace Spaces
+- [ ] Sentiment history chart for each stock
+
+---
+
+## 📂 Folder Structure
+
+```
+📦 sentiment_snipe/
+├── main.py                 # Streamlit dashboard
+├── .env                   # API keys (excluded from GitHub)
+├── requirements.txt       # All dependencies
+├── test_broker.py         # Script to test Alpaca orders
+├── README.md              # This file
+├── /src
+│   ├── broker.py          # Alpaca buy/sell functions
+│   ├── config.py          # .env loader
+│   ├── news_fetcher.py    # Get prices + headlines
+│   └── sentiment.py       # FinBERT analysis
+└── /assets
+    ├── screenshot1.png    # Dashboard UI
+    └── screenshot2.png    # Summary Table
+```
+
+---
+
+## 📄 License
+
+MIT – Feel free to use, remix, and share. Attribution appreciated.
+
+---
+
+## 🙋‍♂️ Author
+
+Made with ❤️ by **Vignesh**  
+🔗 [LinkedIn](https://linkedin.com/in/your-link) | [GitHub](https://github.com/your-username)
+
+---
+
+> ⭐ If you like this project, drop a star!
